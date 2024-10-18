@@ -9,19 +9,28 @@
 
 - [Introdução (Começe por aqui)](#introdução-começe-por-aqui)
 - [Problema 1](#problema-1)
-- [Problema 2](##problema-2)
-- [Problema 3](##problema-3)
-- [SELECT](#select)
-  - [SELECT TOP(N) || SELECT TOP(N) PERCENT](#select-topn--select-topn-percent)
-  - [SELECT DISTINCT](#select-distinct)
-  - [AS](#as)
-  - [Resumo](#resumo)
-  - [Exercícios](#exercícios)
- 
+- [Problema 2](#problema-2)
+- [Problema 3](#problema-3)
+- [Problema 4](#problema-4)
+- [Problema 5](#problema-5)
+- [Problema 6](#problema-6)
+- [Problema 7](#problema-7)
+- [Problema 8](#problema-8)
+- [Problema 9](#problema-9)
+- [Problema 10](#problema-10)
 
 ## Introdução
 
-## Problema1
+Precisamos copiar os dados de pacientes dos schemas de cada hospital
+para o schema stg_prontuario. Escreva um comando SQL que crie uma
+tabela chamada PACIENTE, no schema stg_prontuario, para abrigar os
+dados de pacientes de todos os hospitais. A tabela PACIENTE tem a
+seguinte definição no schema de todos os hospitais:
+
+
+## Problema 1
+
+
 
 
 ## Problema 2
