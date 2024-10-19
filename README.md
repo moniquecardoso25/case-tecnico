@@ -112,7 +112,7 @@ CREATE SCHEMA stg_prontuario
 CREATE TABLE stg_prontuario.PACIENTE(
 
 -- Dados dos pacientes
-id INT PRIMARY KEY,
+id INT,
 nome VARCHAR(255),
 dt_nascimento DATE,
 cpf BIGINT,
