@@ -137,8 +137,31 @@ SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao FROM stg_hospital_
 
 
 ## Problema 3
-  
+
+```sql
+SELECT cpf, COUNT(*) AS quantidade
+FROM stg_prontuario.PACIENTE
+GROUP BY cpf
+HAVING COUNT(*) > 1;
+```
+IMAGEM
+
+![image](https://github.com/user-attachments/assets/1c2a1900-2a9d-48a2-a874-68b8c4d87d84)
+
+
 ## Problema 4
+```sql
+
+WITH duplicados AS (
+    SELECT cpf, MAX(dt_atualizacao) AS max_dt_atualizacao
+    FROM stg_prontuario.PACIENTE
+    GROUP BY cpf
+    HAVING COUNT(*) > 1
+)
+SELECT p.*
+FROM stg_prontuario.PACIENTE p
+JOIN duplicados d ON p.cpf = d.cpf AND p.dt_atualizacao = d.max_dt_atualizacao;
+```
 
 ## Problema 5
 ## Problema 6
