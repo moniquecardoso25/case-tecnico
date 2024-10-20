@@ -147,24 +147,6 @@ PRIMARY KEY(id)
 
 ### Unindo os valores dos schemas no schema stg_prontuario
 
-```sql
--- Inserindo dados da stg_hospital_a.paciente
-insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
-        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
-        from stg_hospital_a.paciente;
-        
--- Inserindo dados da stg_hospital_b.paciente
-insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
-        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
-        from stg_hospital_b.paciente;
-        
- -- Inserindo dados da stg_hospital_c.paciente       
-insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
-        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
-        from stg_hospital_c.paciente;
-```
-
-OU
 
 ```sql
 -- Insere dados de cada hospital no schema stg_prontuario 
@@ -177,24 +159,44 @@ UNION ALL -- Combina os resultados e inclui registros duplicados
 UNION ALL 
    SELECT nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
    FROM stg_hospital_c.PACIENTE;
+
+-- Mostra a tabela
+SELECT * FROM stg_prontuario.PACIENTE;
+
 ```
 
 ### Valores copiados para o schema stg_prontuario 
 
 
+![image](https://github.com/user-attachments/assets/bf2e3bea-c4ad-4d15-a15a-fcfbffbdb140)
 
 
 ## Problema 3
 
+### Contagem de duplicatas
+
 ```sql
+
 SELECT cpf, COUNT(*) AS quantidade
 FROM stg_prontuario.PACIENTE
 GROUP BY cpf
 HAVING COUNT(*) > 1;
 ```
-IMAGEM
 
-![image](https://github.com/user-attachments/assets/1c2a1900-2a9d-48a2-a874-68b8c4d87d84)
+OU
+
+```sql
+SELECT
+      cpf, 
+      sum(1.0) as quantidade
+FROM stg_prontuario.paciente
+GROUP BY cpf
+HAVING sum(1.0) >= 2;
+```
+
+### Quantidade de CPFs duplicados
+
+![image](https://github.com/user-attachments/assets/56ec5286-35a5-46bf-8f8f-a518f2a06619)
 
 
 ## Problema 4
@@ -210,6 +212,30 @@ SELECT p.*
 FROM stg_prontuario.PACIENTE p
 JOIN duplicados d ON p.cpf = d.cpf AND p.dt_atualizacao = d.max_dt_atualizacao;
 ```
+
+OU
+
+```sql
+
+with a 
+as (
+
+	 select 
+           id,
+           nome,
+           dt_nascimento,
+           cpf,
+           nome_mae,
+           dt_atualizacao,
+           row_number() over(partition by cpf order by dt_atualizacao desc) as nr
+	 from stg_prontuario.paciente
+          
+)
+select id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao
+from a
+where nr = 1
+```
+
 
 ## Problema 5
 ## Problema 6
