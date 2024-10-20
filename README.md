@@ -23,7 +23,7 @@
 
 ### Criação dos schemas para os 3 hospitais.
 
-> Primeiro, é foram criados os 3 schemas para cada hospital dentro da tabela paciente.
+> Primeiro, foram criados os 3 schemas para cada hospital dentro da tabela paciente.
 
 
 ```sql
