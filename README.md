@@ -217,9 +217,7 @@ OU
 
 ```sql
 
-WITH a 
-AS (
-
+WITH a AS (
 	 SELECT 
            id,
            nome,
