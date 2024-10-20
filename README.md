@@ -200,6 +200,9 @@ HAVING sum(1.0) >= 2;
 
 
 ## Problema 4
+
+### Data de atualização mais recente do conjunto de paciente duplicados
+
 ```sql
 
 WITH duplicados AS (
@@ -233,6 +236,10 @@ SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao
 FROM a
 WHERE nr = 1
 ```
+
+### Data mais recente
+
+![image](https://github.com/user-attachments/assets/fde249e2-3230-4cad-8477-d7f318fdc3e7)
 
 
 ## Problema 5
