@@ -164,6 +164,23 @@ insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atual
         from stg_hospital_c.paciente;
 ```
 
+OU
+
+```sql
+-- Insere dados de cada hospital no schema stg_prontuario 
+INSERT INTO stg_prontuario.PACIENTE(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
+   SELECT nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+   FROM stg_hospital_a.PACIENTE 
+UNION ALL -- Combina os resultados e inclui registros duplicados
+   SELECT nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+   FROM stg_hospital_b.PACIENTE 
+UNION ALL 
+   SELECT nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+   FROM stg_hospital_c.PACIENTE;
+```
+
+### Valores copiados para o schema stg_prontuario 
+
 
 
 
