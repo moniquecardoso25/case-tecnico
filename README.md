@@ -201,7 +201,7 @@ HAVING sum(1.0) >= 2;
 
 ## Problema 4
 
-### Data de atualização mais recente do conjunto de paciente duplicados
+### Data de atualização mais recente do conjunto de pacientes repetidos
 
 ```sql
 
@@ -237,7 +237,7 @@ FROM a
 WHERE nr = 1
 ```
 
-### Data mais recente
+### Data de atualização mais recente
 
 ![image](https://github.com/user-attachments/assets/fde249e2-3230-4cad-8477-d7f318fdc3e7)
 
