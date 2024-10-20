@@ -217,23 +217,23 @@ OU
 
 ```sql
 
-with a 
+WITH  a 
 as (
 
-	 select 
+	 SELECT 
            id,
            nome,
            dt_nascimento,
            cpf,
            nome_mae,
            dt_atualizacao,
-           row_number() over(partition by cpf order by dt_atualizacao desc) as nr
-	 from stg_prontuario.paciente
+           ROW_NUMBER() OVER(PARTITION BY cpf ORDER BY dt_atualizacao desc) AS nr
+	 FROM stg_prontuario.paciente
           
 )
-select id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao
-from a
-where nr = 1
+SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao
+FROM a
+WHERE nr = 1
 ```
 
 
