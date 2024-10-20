@@ -21,116 +21,147 @@
 
 ## Introdução
 
+### Criação dos schemas para os 3 hospitais.
+
 > Primeiro, é foram criados os 3 schemas para cada hospital dentro da tabela paciente.
 
+
 ```sql
--- Criar o schema stg_hospital_a
+-- Criar schema para o hospital A
 CREATE SCHEMA stg_hospital_a;
 
--- Criar a tabela PACIENTE no schema stg_hospital_a
-CREATE TABLE stg_hospital_a.PACIENTE(
-    id INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    dt_nascimento DATE NOT NULL,
-    cpf BIGINT NOT NULL,
-    nome_mae VARCHAR(255),
-    dt_atualizacao TIMESTAMP
+-- Criar tabela no schema stg_hospital_a
+CREATE TABLE stg_hospital_a.PACIENTE (
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL,
+dt_nascimento DATE NOT NULL,
+cpf BIGINT NOT NULL,
+nome_mae VARCHAR(255),
+dt_atualizacao TIMESTAMP,
+PRIMARY KEY(id)
 );
-
--- Criar o schema stg_hospital_b
+ 
+-- Criar schema para o hospital B
 CREATE SCHEMA stg_hospital_b;
 
--- Criar a tabela PACIENTE no schema stg_hospital_b
-CREATE TABLE stg_hospital_b.PACIENTE (
-    id INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    dt_nascimento DATE NOT NULL,
-    cpf BIGINT NOT NULL,
-    nome_mae VARCHAR(255),
-    dt_atualizacao TIMESTAMP
+-- Criar tabela no schema stg_hospital_b
+CREATE TABLE stg_hospital_b.PACIENTE(
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL,
+dt_nascimento DATE NOT NULL,
+cpf BIGINT NOT NULL,
+nome_mae VARCHAR(255),
+dt_atualizacao TIMESTAMP,
+PRIMARY KEY(id)
 );
 
--- Criar o schema stg_hospital_c
+-- Criar schema para o hospital C
 CREATE SCHEMA stg_hospital_c;
 
--- Criar a tabela PACIENTE no schema stg_hospital_c
-CREATE TABLE stg_hospital_c.PACIENTE (
-    id INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    dt_nascimento DATE NOT NULL,
-    cpf BIGINT NOT NULL,
-    nome_mae VARCHAR(255),
-    dt_atualizacao TIMESTAMP
+-- Criar tabela no schema stg_hospital_c
+CREATE TABLE stg_hospital_c.PACIENTE(
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL,
+dt_nascimento DATE NOT NULL,
+cpf BIGINT NOT NULL,
+nome_mae VARCHAR(255),
+dt_atualizacao TIMESTAMP,
+PRIMARY KEY(id)
 );
 
 ```
 
-> Depois, inseriu-se alguns dados dentro de cada schema, apenas para realizar as consultas. Há nomes duplicados, com mesmo cpf e nome da mãe, que foram inseridos propositalmente para que possam ser removidos durante o problema 3.
+### Schemas criados no MySQL
+
+![image](https://github.com/user-attachments/assets/2a795be6-17f7-423e-a73c-b1ed2977cfbd)
+
+
+> Depois, inseriu-se alguns dados dentro de cada schema, apenas para realizar as consultas. Há nomes duplicados, com mesmo cpf e nome da mãe, que foram inseridos propositalmente para que possam ser consultados durante os problemas 3 e 4.
 
 
 ```sql
 
--- Inserir dados no schema stg_hospital_a
-INSERT INTO stg_hospital_a.PACIENTE (id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
-VALUES
-(190, 'Maria Clara', '01-04-1991', 11111111111, 'Paula', '27-07-2023 13:40:21'),
-(190, 'Maria C.', '01-04-1991', 11111111111, 'Paula', '02-05-2023 18:45:27'),
-(365, 'Joao A.', '01-05-1984', 22222222222, 'Pedro', '21-07-2023 14:50:31'),
-(365, 'Joao Augusto', '01-05-1984', 22222222222, 'Pedro', '15-01-2023 16:45:22'),
-(567, 'Ana Souza', '12-03-1990', 33333333333, 'Lucia', '10-08-2023 10:30:00');
-
+-- Inserir dados no shema stg_hospital_a
+INSERT INTO stg_hospital_a.PACIENTE( nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
+VALUES 
+( 'Maria Clara', '1991-04-01', 11111111111, 'Paula', '2023-07-23 13:40:21'), 
+( 'Maria C.', '1991-04-01', 11111111111, 'Paula', '2023-07-23 18:45:27'),
+( 'Joao A.', '1984-05-01', 22222222222, 'Pedro', '2023-07-21 14:50:31'),
+( 'Joao Augusto', '1984-05-01', 22222222222, 'Pedro', '2023-05-21 16:45:22'),
+( 'Ana Souza', '1990-03-12', 33333333333, 'Lucia', '2023-08-21 10:30:00');
 
 -- Inserir dados no schema stg_hospital_b
-INSERT INTO stg_hospital_b.PACIENTE (id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
+INSERT INTO stg_hospital_b.PACIENTE ( nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
 VALUES
-(646, 'Carlos Lima', '21-11-1978', 44444444444, 'Mariana', '05-06-2023 11:20:15'),
-(646, 'Carlos L.', '21-11-1978', 44444444444, 'Mariana', '28-08-2023 10:00:00'),  
-(358, 'Felipe Rocha', '09-09-1983', 66666666666, 'Sofia', '22-04-2023 09:45:35'),
-(956, 'Maria Fernanda', '06-09-1991', 77777777777, 'Amanda', '05-05-2023 12:00:00'), 
-(140, 'Daniel Costa', '10-06-1992', 88888888888, 'Amanda', '25-05-2023 13:00:00');
+( 'Carlos Lima', '1978-11-21', 44444444444, 'Mariana', '2023-06-05 11:20:15'),
+( 'Carlos L.', '1978-11-21', 44444444444, 'Mariana', '2021-09-05 10:00:00'),  
+( 'Felipe Rocha', '1983-09-09', 66666666666, 'Sofia', '2022-07-05 09:45:35'),
+( 'Maria Fernanda', '1991-09-06', 77777777777, 'Amanda', '2023-09-026 12:00:00'), 
+( 'Daniel Costa', '1995-06-09', 88888888888, 'Amanda', '2023-11-05 13:00:00');
 
 -- Inserir dados no schema stg_hospital_c
-INSERT INTO stg_hospital_c.PACIENTE (id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
+INSERT INTO stg_hospital_c.PACIENTE ( nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
 VALUES
-(113, 'Larissa Braga', '11-01-1995', 55555555555, 'Fernanda', '05-07-2023 12:45:00'),
-(113, 'Larissa B.', '11-01-1995', 55555555555, 'Fernanda', '01-09-2023 08:00:00'), 
-(170, 'Pedro Souza', '30-08-1985', 12121212121, 'Marta', '12-06-2023 19:10:00'),
-(184, 'Gabriela Mendes', '25-03-1991', 13131313131, 'Valeria', '20-01-2023 10:10:00'),
-(155, 'Rafael Lima.', '03-12-1987', 14141414141, 'Claudia', '01-08-2023 15:40:45');
+( 'Larissa Braga', '1978-11-21', 55555555555, 'Fernanda', '2023-06-05 12:45:00'),
+( 'Larissa B.', '1980-12-21', 55555555555, 'Fernanda', '2023-08-05 08:00:00'), 
+( 'Pedro Souza', '1993-08-26', 12121212121, 'Marta', '2023-07-05 19:10:00'),
+( 'Gabriela Mendes', '1997-04-12', 13131313131, 'Valeria', '2023-03-05 10:10:00'),
+( 'Rafael Lima.', '1995-05-05', 14141414141, 'Claudia', '2023-01-05 15:40:45');
 
 ```
+
+### Dados inseridos dentro de cada schema
+
+![image](https://github.com/user-attachments/assets/eb7c6d05-eb49-4b98-b906-becf57fa17d1)
 
 
 ## Problema 1
 
+### Criação do schema prontuáro na tabela paciente
+
 ```sql
 
--- Cria o schema stg_prontuario
-CREATE SCHEMA stg_prontuario
+-- Criar schema prontuário
+CREATE SCHEMA stg_prontuario;
 
--- Cria tabela paciente no schema stg_prontuario
+-- Criar tabela paciente dentro do schema stg_prontuario
 CREATE TABLE stg_prontuario.PACIENTE(
 
 -- Dados dos pacientes
-id INT,
-nome VARCHAR(255),
-dt_nascimento DATE,
-cpf BIGINT,
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL,
+dt_nascimento DATE NOT NULL,
+cpf BIGINT NOT NULL,
 nome_mae VARCHAR(255),
-dt_atualizacao TIMESTAMP
+dt_atualizacao TIMESTAMP,
+PRIMARY KEY(id)
 );
 ```
+
+### Schema criado
+
+![image](https://github.com/user-attachments/assets/952dba97-97f1-4310-8759-908fa46be24f)
 
 
 ## Problema 2
 
+### Unindo os valores dos schemas no schema stg_prontuario
+
 ```sql
-INSERT INTO stg_prontuario.PACIENTE (id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao)
-SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao FROM stg_hospital_a.PACIENTE
-UNION ALL
-SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao FROM stg_hospital_b.PACIENTE
-UNION ALL
-SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao FROM stg_hospital_c.PACIENTE;
+-- Inserindo dados da stg_hospital_a.paciente
+insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
+        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+        from stg_hospital_a.paciente;
+        
+-- Inserindo dados da stg_hospital_b.paciente
+insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
+        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+        from stg_hospital_b.paciente;
+        
+ -- Inserindo dados da stg_hospital_c.paciente       
+insert into stg_prontuario.paciente(nome, dt_nascimento, cpf, nome_mae, dt_atualizacao) 
+        select nome, dt_nascimento, cpf, nome_mae, dt_atualizacao 
+        from stg_hospital_c.paciente;
 ```
 
 
