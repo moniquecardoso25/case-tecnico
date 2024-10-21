@@ -244,15 +244,23 @@ WHERE nr = 1
 
 ## Problema 5
 
-### Arquivo do VSCode - Jupyter Notebook
+Foi utilizado a extensão do Jupyter no VSCode. Acesse os códigos no link abaixo.
+### [Jupyter Notebook]()
 
-### [Link](https://github.com/moniquecardoso25/case-tecnico/blob/57f0b3e37548db5296c9e72a1a739ec81d6f6d90/problema_5.ipynb)
+Os dados dos 6 arquivos foram inseridos com sucesso no MySQL via Python, conforme mostra as imagens imagens abaixo: 
 
-
-### Banco de Dados MySQL
+### Arquivo 1: rl_procedimento_cid
 
 ![image](https://github.com/user-attachments/assets/f6256a0d-0e72-4414-97c6-e680dda92d39)
 
+### Arquivo 2: tb_cid
+![image](https://github.com/user-attachments/assets/8e29aad8-f477-4507-80bf-7fd7a7517c64)
+
+### Arquivo 3: tb_forma_organizacao
+
+![image](https://github.com/user-attachments/assets/1242fc8a-46cd-44e5-a53f-355bed8f38a3)
+
+### Arquivo 4: 
 
 ## Problema 6
 
