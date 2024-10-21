@@ -246,7 +246,7 @@ WHERE nr = 1
 
 ### Arquivo do VSCode - Jupyter Notebook
 
-### [Link]()
+### [Link](https://github.com/moniquecardoso25/case-tecnico/blob/57f0b3e37548db5296c9e72a1a739ec81d6f6d90/problema_5.ipynb)
 
 
 ### MySQL
