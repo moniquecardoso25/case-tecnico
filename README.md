@@ -244,7 +244,15 @@ WHERE nr = 1
 
 ## Problema 5
 
-[Link](https://github.com/moniquecardoso25/case-tecnico/blob/45e19aba1ba66ee7c0077fc9ca74014b3159cb32/problema_5.ipynb)
+### Arquivo do VSCode - Jupyter Notebook
+
+### [Link](https://github.com/moniquecardoso25/case-tecnico/blob/45e19aba1ba66ee7c0077fc9ca74014b3159cb32/problema_5.ipynb)
+
+
+### MySQL
+
+![image](https://github.com/user-attachments/assets/ecd50ac5-741d-42c5-a12f-3fe5aa6a4453)
+
 
 ## Problema 6
 
