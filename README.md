@@ -249,9 +249,9 @@ WHERE nr = 1
 ### [Link](https://github.com/moniquecardoso25/case-tecnico/blob/57f0b3e37548db5296c9e72a1a739ec81d6f6d90/problema_5.ipynb)
 
 
-### MySQL
+### Banco de Dados MySQL
 
-![image](https://github.com/user-attachments/assets/ecd50ac5-741d-42c5-a12f-3fe5aa6a4453)
+![image](https://github.com/user-attachments/assets/f6256a0d-0e72-4414-97c6-e680dda92d39)
 
 
 ## Problema 6
