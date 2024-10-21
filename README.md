@@ -249,7 +249,6 @@ Foi utilizado a extensão do Jupyter no VSCode. Acesse os códigos no link abaix
 
 Os dados dos arquivos foram inseridos no MySQL via Python, conforme mostra as imagens imagens abaixo: 
 
-Algumas imagens: 
 
 ![image](https://github.com/user-attachments/assets/f6256a0d-0e72-4414-97c6-e680dda92d39)
 
