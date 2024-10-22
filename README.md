@@ -261,7 +261,7 @@ Os dados dos arquivos foram inseridos no MySQL via Python, conforme mostra as im
 
 ## Problema 6
 
-[Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/fbcf724b9e3824d39601c8196b4e0413fce3dc8e/Problema_6.ipynb)
+### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/fbcf724b9e3824d39601c8196b4e0413fce3dc8e/Problema_6.ipynb)
 
 Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
@@ -304,9 +304,11 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 ## Problema 9
 
+### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/cdf451ed072be6e3d88c090212a676c60e665246/problema_9.ipynb)
 
 
 ## Problema 10
+
   
   
 
