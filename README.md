@@ -175,24 +175,15 @@ SELECT * FROM stg_prontuario.PACIENTE;
 
 ### Contagem de duplicatas
 
-```sql
 
+```sql
+-- Contar a quantidade de cpfs duplicados
 SELECT cpf, COUNT(*) AS quantidade
 FROM stg_prontuario.PACIENTE
 GROUP BY cpf
 HAVING COUNT(*) > 1;
 ```
 
-OU
-
-```sql
-SELECT
-      cpf, 
-      sum(1.0) as quantidade
-FROM stg_prontuario.paciente
-GROUP BY cpf
-HAVING sum(1.0) >= 2;
-```
 
 ### Quantidade de CPFs duplicados
 
@@ -204,7 +195,7 @@ HAVING sum(1.0) >= 2;
 ### Data de atualização mais recente do conjunto de pacientes repetidos
 
 ```sql
-
+-- Mostrar a data de atualização mais recente dos cpfs duplicados
 WITH duplicados AS (
     SELECT cpf, MAX(dt_atualizacao) AS max_dt_atualizacao
     FROM stg_prontuario.PACIENTE
