@@ -299,7 +299,7 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 ### Cálculo da média
 
-![image](https://github.com/user-attachments/assets/5d2bfebf-043d-4a2d-9136-74a2e699bff8)
+![image](https://github.com/user-attachments/assets/0ad119c1-cd5a-4830-9fd3-edbe6e99c002)
 
 
 ## Problema 9
