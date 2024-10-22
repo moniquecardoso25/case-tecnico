@@ -224,7 +224,7 @@ JOIN duplicados d ON p.cpf = d.cpf AND p.dt_atualizacao = d.max_dt_atualizacao;
 ## Problema 5
 
 > Foi utilizado a extensão do Jupyter no VSCode. Acesse os códigos no link abaixo.
-> Os arquivos foram lidos em modo leitura ('r) e depois foram feitas as partições para cada coluna das 6 tabelas. Em que as strings foram divididas em partes menores, de acordo com os dados informados nos arquivos com final "_layout".
+> Os arquivos foram lidos em modo leitura ('r) e depois foram feitas as partições para cada coluna das 6 tabelas. As strings foram divididas em partes menores, de acordo com os dados informados nos arquivos com o final "_layout".
 > A conexão com o banco de dados MySQL foi realizada no schema stg_prontuario.
 > As queries foram criadas, ou seja as tabelas com os nomes, tipos e tamanhos das colunas de cada arquivo e os dados inseridos no banco de dados.
 
@@ -295,8 +295,8 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 ## Problema 9
 
 > O código Python apresentado verifica se todos os medicamentos de uma prescrição estão disponíveis em um estoque. Os medicamentos são representados por letras conforme pedido no desafio. 
-> No print(verificar_prescricao("a", "b")), retorna False porque o medicamento "a" não está no estoque. Já no
-print(verificar_prescricao("aa", "aab")), retorna True porque há quantidade suficiente de "a" no estoque para atender à prescrição
+> No print(verificar_prescricao("a", "b")), retorna False, porque o medicamento "a" não está no estoque. Já no
+print(verificar_prescricao("aa", "aab")), retorna True, porque há quantidade suficiente de "a" no estoque para atender à prescrição
 
 ### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/cdf451ed072be6e3d88c090212a676c60e665246/problema_9.ipynb)
 
