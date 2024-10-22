@@ -117,6 +117,8 @@ VALUES
 
 ## Problema 1
 
+> O schema prontuário foi criado conforme a definição requerida no desafio técnico. No CPF foi usado o tipo de dado BIGINT porque o mesmo tem 11 caracteres e o INT aceita apenas até 10 caracteres. O auto_increment é usado para gerar um ID automaticamente quando um novo registro é inserido na tabela. O ID é único para cada paciente, por isso foi utilizada a chave primária (primary key). 
+
 ### Criação do schema prontuáro na tabela paciente
 
 ```sql
@@ -144,6 +146,8 @@ PRIMARY KEY(id)
 
 
 ## Problema 2
+
+> Os valores dos 3 schemas foram copiados para a nova tabela PACIENTE criada no schema stg_prontuario. Essa união se dá por meio do UNION ALL, que foi utilizado para incluir os valores duplicados, que serão utilizados nos problemas 3 e 4. Após isso, fez-se uma consulta da tabela através do comando SELECT a fim de verificar os valores desse novo schema criado.
 
 ### Unindo os valores dos schemas no schema stg_prontuario
 
@@ -173,6 +177,8 @@ SELECT * FROM stg_prontuario.PACIENTE;
 
 ## Problema 3
 
+> O código abaixo retorna a quantidade de pacientes duplicados por meio da contagem COUNT() de seus CPFs que aparecem mais de uma vez (HAVING COUNT(*)>1) na tabela.
+
 ### Contagem de duplicatas
 
 
@@ -192,6 +198,8 @@ HAVING COUNT(*) > 1;
 
 ## Problema 4
 
+> O código identifica CPFs duplicados na tabela de pacientes, retornando os registros com a data de atualização mais recente para cada CPF duplicado.
+
 ### Data de atualização mais recente do conjunto de pacientes repetidos
 
 ```sql
@@ -207,26 +215,6 @@ FROM stg_prontuario.PACIENTE p
 JOIN duplicados d ON p.cpf = d.cpf AND p.dt_atualizacao = d.max_dt_atualizacao;
 ```
 
-OU
-
-```sql
-
-WITH a AS (
-	 SELECT 
-           id,
-           nome,
-           dt_nascimento,
-           cpf,
-           nome_mae,
-           dt_atualizacao,
-           ROW_NUMBER() OVER(PARTITION BY cpf ORDER BY dt_atualizacao desc) AS nr
-	 FROM stg_prontuario.paciente
-          
-)
-SELECT id, nome, dt_nascimento, cpf, nome_mae, dt_atualizacao
-FROM a
-WHERE nr = 1
-```
 
 ### Data de atualização mais recente
 
@@ -235,10 +223,14 @@ WHERE nr = 1
 
 ## Problema 5
 
-Foi utilizado a extensão do Jupyter no VSCode. Acesse os códigos no link abaixo.
+> Foi utilizado a extensão do Jupyter no VSCode. Acesse os códigos no link abaixo.
+> Os arquivos foram lidos em modo leitura ('r) e depois foram feitas as partições para cada coluna das 6 tabelas. Em que as strings foram divididas em partes menores, de acordo com os dados informados nos arquivos com final "_layout".
+> A conexão com o banco de dados MySQL foi realizada no schema stg_prontuario.
+> As queries foram criadas, ou seja as tabelas com os nomes, tipos e tamanhos das colunas de cada arquivo e os dados inseridos no banco de dados.
+
 ### [Jupyter Notebook](https://github.com/moniquecardoso25/case-tecnico/blob/d535d8eb605eceb5ff8dc1d500b38a11936290ad/problema_5.ipynb)
 
-Os dados dos arquivos foram inseridos no MySQL via Python, conforme mostra as imagens imagens abaixo: 
+> Os dados dos arquivos foram inseridos no MySQL via Python, conforme mostra as imagens imagens abaixo: 
 
 
 ![image](https://github.com/user-attachments/assets/f6256a0d-0e72-4414-97c6-e680dda92d39)
@@ -252,6 +244,8 @@ Os dados dos arquivos foram inseridos no MySQL via Python, conforme mostra as im
 
 ## Problema 6
 
+> Aravés desse [Link](https://open-meteo.com/en/docs#latitude=-22.9064&longitude=-43.1822&hourly=pressure_msl&timezone=America%2FSao_Paulo), no campo API Response (Python), foi gerada a API da pressão atmosférica da cidade do Rio de Janeiro. O site cria um código padrão informando a latitude e longitude da cidade pesquisada em sua busca principal, onde foi possível obter a tabela com os dados da previsão da pressão atmosférica dos próximos 7 dias (21 até 27 de Outubro de 2024). Depois, os dados foram inseridos no MySQL.
+
 ### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/fbcf724b9e3824d39601c8196b4e0413fce3dc8e/Problema_6.ipynb)
 
 Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
@@ -260,6 +254,8 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 
 ## Problema 7
+
+> O código SQL criou de uma nova tabela num esquema chamado stg_prontuario, denominada atendimento_prescricao. Essa tabela tem como objetivo estabelecer um relacionamento entre duas entidades: atendimentos e prescrições médicas, através de uma chave estrangeira do id dos atendimentos (id_atend).
 
 ### Tabela Atendimento
 
@@ -272,6 +268,9 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 
 ## Problema 8
+
+> Os valores informados no desafio foram inseridos na tabela para calcular a quantidade média de medicamentos prescritos dos atendimentos tipo U (Urgência).
+> Os tipos dos atendimentos também foram inseridos nos valores.
 
 ### Inserção de valores nas tabelas
 
@@ -295,10 +294,16 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 ## Problema 9
 
+> O código Python apresentado verifica se todos os medicamentos de uma prescrição estão disponíveis em um estoque. Os medicamentos são representados por letras conforme pedido no desafio. 
+> No print(verificar_prescricao("a", "b")), retorna False porque o medicamento "a" não está no estoque. Já no
+print(verificar_prescricao("aa", "aab")), retorna True porque há quantidade suficiente de "a" no estoque para atender à prescrição
+
 ### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/cdf451ed072be6e3d88c090212a676c60e665246/problema_9.ipynb)
 
 
 ## Problema 10
+
+> Datas aleatórias foram criadas apenas para gerar o gráfico de barra(utilizando a biblioteca Matplotlib). As datas descritas numa lista foram inseridas em Series do Pandas, que é o mais viável nesse caso, pois há apenas 1 coluna na tabela. O gráfico mostra a quantidade de atendimentos médicos por dia, através da contagem das datas.
 
 ### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/0b2a389711c019e0620563382108ee02d4cb229a/problema10%20(1).ipynb)  
   
