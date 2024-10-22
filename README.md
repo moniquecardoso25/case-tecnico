@@ -269,9 +269,43 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 
 ## Problema 7
+
+### Tabela Atendimento
+
+![image](https://github.com/user-attachments/assets/765d5729-916b-4712-8f06-52bd8a97d036)
+
+
+### Tabela Prescrição
+
+![image](https://github.com/user-attachments/assets/cb5db923-b0d7-4b88-9e39-559d21c03918)
+
+
 ## Problema 8
 
+### Inserção de valores nas tabelas
+
+![image](https://github.com/user-attachments/assets/55f76f2a-acfe-441b-b833-b5bc438dabbd)
+
+
+### Consulta dos valores da tabela ATENDIMENTO
+
+![image](https://github.com/user-attachments/assets/f620af31-a2f4-4486-bacc-eb24e051f5c6)
+
+
+### Consulta dos valores da tabela ATENDIMENTO_PRESCRIÇÃO
+
+![image](https://github.com/user-attachments/assets/6874b1b6-2567-41bf-b35c-148922ad4257)
+
+
+### Cálculo da média
+
+![image](https://github.com/user-attachments/assets/5d2bfebf-043d-4a2d-9136-74a2e699bff8)
+
+
 ## Problema 9
+
+
+
 ## Problema 10
   
   
