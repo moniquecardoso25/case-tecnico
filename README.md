@@ -309,6 +309,6 @@ Pressão Atmosférica extraída via API com Python. Dados inseridos no MySQL.
 
 ## Problema 10
 
-  
+### [Código do Python](https://github.com/moniquecardoso25/case-tecnico/blob/0b2a389711c019e0620563382108ee02d4cb229a/problema10%20(1).ipynb)  
   
 
